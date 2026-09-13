@@ -5,7 +5,7 @@
  * TODO (before going live): replace with the real WhatsApp group invite URL.
  * The success state links here after submission.
  */
-export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/REPLACE-WITH-REAL-INVITE-LINK";
+export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/EGACqoqqIWqJUJnmQKc0Yp";
 
 export const CONTACT_EMAIL = "ietebits@gmail.com";
 
@@ -33,14 +33,17 @@ export const DOMAINS: Domain[] = [
 export const CATEGORY_ORDER = ["Build", "Create", "Compete"] as const;
 
 export const BRANCHES = [
-  "ECE",
   "CSE",
+  "CSE(CyberSecurity)",
   "IT",
-  "EE",
-  "EEE",
-  "ME",
+  "ECE",
+  "Electrical",
+  "Mechanical",
+  "Chemical Eng.",
   "Civil",
-  "Other",
+  "Metallurgy",
+  "Mining",
+  "Production & Industrial Eng.",
 ] as const;
 
 export interface Step {
@@ -81,9 +84,5 @@ export const FAQS: Faq[] = [
     answer:
       "You will get a confirmation, then takes place screening followed by a guided domain specific task within a few days. Complete it at your own pace, then appear for a short personal interview with the core team.",
   },
-  {
-    question: "Is there an induction fee?",
-    answer:
-      "No. Induction into the forum is completely free. Only the optional official IETE national membership, which you may choose to take separately, involves its own fee.",
-  },
+  
 ];

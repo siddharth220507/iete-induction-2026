@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { supabase } from '../lib/supabase';
-import { CLUB_NAME, BRANCHES, DOMAINS, WHATSAPP_GROUP_URL } from "../lib/data";
+import { BRANCHES, DOMAINS, WHATSAPP_GROUP_URL } from "../lib/data";
 import { fadeUp, inViewProps, staggerParent } from "../lib/motion";
 
 interface InductionFormProps {
@@ -17,10 +17,16 @@ interface FormValues {
   whatsapp: string;
   email: string;
   domain: string;
-  hobbies:string;
-  strength:string;
-  aim:string;
+  hobbies: string;
+  strength: string;
+  technicalSkills: string;
+
+  oneWordDescribe: string;
+  ratingStagePresentation: number;
+  ratingManagerialSkills: number;
+  aim: string;
   achievements: string;
+
 
 }
 
@@ -35,10 +41,15 @@ const initialValues: FormValues = {
   email: "",
   domain: "",
   hobbies: "",
+
   strength: "",
+  technicalSkills: "",
+  oneWordDescribe: "",
+  ratingStagePresentation: 3,
+  ratingManagerialSkills: 3,
   aim: "",
   achievements: "",
-  
+
 };
 
 function validate(values: FormValues): FormErrors {
@@ -46,14 +57,14 @@ function validate(values: FormValues): FormErrors {
   if (!values.fullName.trim()) errors.fullName = "Required.";
   if (!values.branch) errors.branch = "Select your branch.";
   const percentage = Number(values.percentage12);
-  if(!values.percentage12.trim()) errors.percentage12 = "Required.";
-  else if (Number.isNaN(percentage) || percentage <0 || percentage > 100)
+  if (!values.percentage12.trim()) errors.percentage12 = "Required.";
+  else if (Number.isNaN(percentage) || percentage < 0 || percentage > 100)
     errors.percentage12 = "Enter a percentage between 0 and 100.";
   const cmlrank = Number(values.cmlrank);
-  if(!values.cmlrank.trim()) errors.cmlrank ="Required.";
-  else if (!Number.isInteger(cmlrank)|| cmlrank <= 0) errors.cmlrank = "Enter a valid CML rank.";
+  if (!values.cmlrank.trim()) errors.cmlrank = "Required.";
+  else if (!Number.isInteger(cmlrank) || cmlrank <= 0) errors.cmlrank = "Enter a valid CML rank.";
   const whatsapp = values.whatsapp.replace(/\s+/g, " ");
-  if (!/^\d{10}$/.test(whatsapp))  errors.whatsapp = "Enter a 10-digit number.";
+  if (!/^\d{10}$/.test(whatsapp)) errors.whatsapp = "Enter a 10-digit number.";
   if (!/^\S+@\S+\.\S+$/.test(values.email.trim())) errors.email = "Enter a valid email.";
   if (!values.domain) errors.domain = "Select a domain.";
   if (!values.hobbies.trim()) errors.hobbies = "Required";
@@ -87,13 +98,44 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
     setErrors((e) => (e[field] ? { ...e, [field]: undefined } : e));
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const nextErrors = validate(values);
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
       return;
     }
+
+    // Send the application data to Supabase
+    const { error } = await supabase
+      .from('induction_applications')
+      .insert([
+        {
+          full_name: values.fullName,
+          branch: values.branch,
+          twelfth_percentage: values.percentage12,
+          cml_rank: values.cmlrank,
+          contact_no: values.whatsapp,
+          email: values.email,
+          primary_domain: values.domain,
+          hobbies: values.hobbies,
+          strengths: values.strength,
+          technical_skills: values.technicalSkills || '',
+          one_word_describe: values.oneWordDescribe,
+          rating_stage_presentation: Number(values.ratingStagePresentation || 3),
+          rating_managerial_skills: Number(values.ratingManagerialSkills || 3),
+          aim: values.aim,
+          achievements: values.achievements,
+        },
+      ]);
+
+    if (error) {
+      console.error("Supabase Error:", error.message);
+      alert("Submission error: " + error.message);
+      return;
+    }
+
+    // Trigger completion screen
     setSubmittedName(values.fullName.trim());
   };
 
@@ -142,7 +184,7 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
                 {errors.fullName && <p className={errorClass}>{errors.fullName}</p>}
               </div>
 
-          
+
 
               <div>
                 <label htmlFor="branch" className={labelClass}>Branch</label>
@@ -155,15 +197,15 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
 
               <div>
                 <label htmlFor="percentage12" className={labelClass}>Class 12th Percentage</label>
-                <input id="percentage12" type="number" min="0" max="100" step="0.01" placeholder = "e.g.87.5" 
-                value={values.percentage12} onChange ={ set("percentage12")} className = "w-full"/> 
+                <input id="percentage12" type="number" min="0" max="100" step="0.01" placeholder="e.g.87.5"
+                  value={values.percentage12} onChange={set("percentage12")} className="w-full" />
                 {errors.percentage12 && (<p className="(errorClass}">{errors.percentage12}</p>)}
               </div>
 
               <div>
                 <label htmlFor="cmlrank" className={labelClass}> CML Rank</label>
-                <input id="cmlrank" type="number" min="1"  step="1" placeholder = "Enter your CML rank" 
-                value={values.cmlrank} onChange ={ set("cmlrank")} className = "w-full"/> 
+                <input id="cmlrank" type="number" min="1" step="1" placeholder="Enter your CML rank"
+                  value={values.cmlrank} onChange={set("cmlrank")} className="w-full" />
                 {errors.cmlrank && (<p className="(errorClass}">{errors.cmlrank}</p>)}
               </div>
 
@@ -213,12 +255,78 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
 
               <div>
                 <label htmlFor="achievements" className={labelClass}>Achievements</label>
-                <textarea id="achievemets" rows={5}  placeholder="Mention your academic and extracurricular achievements such as academic awards , scholarships , competitions,sports,cultural activities, etc"
+                <textarea id="achievemets" rows={5} placeholder="Mention your academic and extracurricular achievements such as academic awards , scholarships , competitions,sports,cultural activities, etc"
                   value={values.achievements} onChange={set("achievements")} className="w-full " />
                 {errors.achievements && <p className={errorClass}>{errors.achievements}</p>}
               </div>
+              {/* 1. Technical Skills */}
+              <div className="space-y-2">
+                <label className="text-xs font-medium text-zinc-500 uppercase tracking-wider">
+                  Technical Skills
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. C++, Python, Web Dev, Figma, Beginner"
+                  value={values.technicalSkills}
+                  onChange={set("technicalSkills")}
+                  className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none"
+                />
+              </div>
 
-              
+              {/* 2. One Word to Describe You */}
+              <div className="space-y-2">
+                <label className="text-xs font-medium text-zinc-500 uppercase tracking-wider">
+                  One word to describe you *
+                </label>
+                <input
+                  required
+                  type="text"
+                  placeholder="e.g. Curious, Resilient, Problem-solver"
+                  value={values.oneWordDescribe}
+                  onChange={set("oneWordDescribe")}
+                  className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none"
+                />
+              </div>
+
+              {/* 3. Self Rating (Scale 1 to 5) */}
+              <div className="space-y-3 pt-2">
+                <label className="text-xs font-medium text-zinc-500 uppercase tracking-wider">
+                  Self Rating (Scale of 1 to 5) *
+                </label>
+                {[
+                  { label: "Stage Presentation", key: "ratingStagePresentation" },
+                  { label: "Managerial Skills", key: "ratingManagerialSkills" },
+                ].map(({ label, key }) => {
+                  const val = values[key as keyof FormValues] || 3;
+                  return (
+                    <div key={key} className="space-y-1.5 p-3 rounded-xl border border-zinc-200 bg-zinc-50/50">
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-medium text-zinc-700">{label}</span>
+                        <span className="font-bold text-zinc-900 bg-white px-2 py-0.5 rounded border border-zinc-200">
+                          {val} / 5
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-5 gap-2 pt-1">
+                        {[1, 2, 3, 4, 5].map((num: number) => (
+                          <button
+                            key={num}
+                            type="button"
+                            onClick={() => setValues((v) => ({ ...v, [key]: num }))}
+                            className={`py-2 rounded-lg text-xs font-semibold transition-all border ${val === num
+                              ? "bg-zinc-900 text-white border-zinc-900 shadow-sm"
+                              : "bg-white text-zinc-700 border-zinc-200 hover:border-zinc-400"
+                              }`}
+                          >
+                            {num}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+
 
               <div className="md:col-span-2">
                 <motion.button

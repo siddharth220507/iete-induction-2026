@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FULL_CLUB_NAME, DOMAINS } from "../lib/data";
+import { FULL_CLUB_NAME, } from "../lib/data";
 import { fadeUp, staggerParent } from "../lib/motion";
 
 /** Large faint circuit-trace motif — pure monochrome line work, no gradients. */
@@ -49,12 +49,7 @@ function CircuitTrace() {
   );
 }
 
-const STATS = [
-  { value: String(DOMAINS.length), label: "Domains" },
-  { value: "3", label: "Rounds" },
-  { value: "120+", label: "Members" },
-  { value: "0", label: "Fees" },
-];
+
 
 export default function Hero() {
   return (
@@ -97,19 +92,7 @@ export default function Hero() {
           </span>
         </motion.a>
 
-        <motion.div
-          variants={fadeUp}
-          className="mt-16 grid grid-cols-2 gap-y-8 border-t border-zinc-200 pt-8 sm:grid-cols-4"
-        >
-          {STATS.map((stat) => (
-            <div key={stat.label} className="pr-6">
-              <p className="font-serif-display text-3xl font-semibold text-zinc-900 tabular-nums">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-[13px] text-zinc-500">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
+        
       </motion.div>
     </section>
   );
