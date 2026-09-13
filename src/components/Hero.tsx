@@ -79,8 +79,7 @@ export default function Hero() {
           {FULL_CLUB_NAME}
         </motion.h1>
         <motion.p variants={fadeUp} className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-500">
-          A student forum for engineers who build — electronics, software, and everything
-          in between. Join a community that learns in public, ships real projects, and grows together.
+        A Students' Forum for engineers who build. A community of students passionate about electronics, robotics, software, AI, and emerging technology. <br/> Learn by doing, collaborate with fellow builders, take on real challenges, and grow together.
         </motion.p>
         <motion.a
           variants={fadeUp}

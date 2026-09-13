@@ -35,11 +35,11 @@ export default function Domains({ onSelectDomain }: DomainsProps) {
             variants={fadeUp}
             className="max-w-2xl font-serif-display text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl"
           >
-            Eight domains, four ways to contribute.
+            Seven domains, multiple ways to contribute.
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 max-w-xl text-[15px] leading-relaxed text-zinc-500">
-            Every domain maps to real work — events you will run, projects you will ship —
-            and a tag shows how you will spend your time. Select one to start your application.
+            Every domain maps to real work — from events you organize to projects you build and ship.
+             Each tag shows how you’ll contribute and where you’ll spend your time. Select one to start your application.
           </motion.p>
         </motion.div>
 

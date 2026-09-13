@@ -7,7 +7,7 @@
  */
 export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/REPLACE-WITH-REAL-INVITE-LINK";
 
-export const CONTACT_EMAIL = "iestf@college.edu";
+export const CONTACT_EMAIL = "ietebits@gmail.com";
 
 export const CLUB_NAME = "IETE Students' Forum";
 export const FULL_CLUB_NAME = "Institution of Electronics & Telecommunication Engineers";
@@ -21,17 +21,16 @@ export interface Domain {
 }
 
 export const DOMAINS: Domain[] = [
-  { no: "01", name: "Artificial Intelligence", category: "Build", description: "Agents, automation and applied intelligence — from concept to working demo." },
+  { no: "01", name: "Artificial Intelligence", category: "Build", description: "Agents, automation and applied intelligence. From concept to working demo." },
   { no: "02", name: "Machine Learning", category: "Build", description: "Training models on real data and presenting results that hold up to questions." },
   { no: "03", name: "Competitive Programming", category: "Compete", description: "Contest teams, problem-setting and the discipline of clean algorithms." },
   { no: "04", name: "Graphic Design", category: "Create", description: "Posters, identity systems and the visual language of the forum." },
   { no: "05", name: "Web Development", category: "Build", description: "The forum's web presence — this portal is a first taste of that work." },
-  { no: "06", name: "IoT & Robotics", category: "Build", description: "Sensors, microcontrollers and machines that move — hardware you can hold." },
+  { no: "06", name: "IoT & Robotics", category: "Build", description: "Sensors, microcontrollers and machines that move. Hardware you can hold." },
   { no: "07", name: "Video Editing", category: "Create", description: "Event films, recaps and motion pieces that document everything we do." },
-  { no: "08", name: "Management & Leadership", category: "Lead", description: "Planning events, leading teams and keeping the forum running end to end." },
-];
+  ];
 
-export const CATEGORY_ORDER = ["Build", "Create", "Compete", "Lead"] as const;
+export const CATEGORY_ORDER = ["Build", "Create", "Compete"] as const;
 
 export const BRANCHES = [
   "ECE",
@@ -51,8 +50,8 @@ export interface Step {
 }
 
 export const STEPS: Step[] = [
-  { no: "01", title: "Application", description: "Fill the induction form below. Two minutes, honest answers." },
-  { no: "02", title: "Interactive Task", description: "A short, domain-relevant task sent to your email after applying." },
+  { no: "01", title: "Application", description: "Fill the induction form below. Your first step towards joining IETE-SF" },
+  { no: "02", title: "Screening & Learning", description: "A short screening, followed by resources and a guided task to put your learning into practice." },
   { no: "03", title: "Personal Interview", description: "A conversation with the core team. Bring your curiosity." },
 ];
 
@@ -75,17 +74,12 @@ export const FAQS: Faq[] = [
   {
     question: "Is prior experience required?",
     answer:
-      "No. The interactive task and interview are designed to see how you think, not what you already know. A beginner who shows up curious regularly beats a résumé that does not.",
+      "No. The interactive guided task and interview are designed to see how you think, not what you already know. You don’t need experience. Just curiosity and the willingness to learn.",
   },
   {
     question: "What happens after I submit the form?",
     answer:
-      "You will get a confirmation, then the interactive task by email within a few days. Complete it at your own pace, then appear for a short personal interview with the core team.",
-  },
-  {
-    question: "How much time does the forum take per week?",
-    answer:
-      "Plan for three to five focused hours in a normal week — builds, meets and event prep. It rises briefly around our flagship events, and we plan those well in advance.",
+      "You will get a confirmation, then takes place screening followed by a guided domain specific task within a few days. Complete it at your own pace, then appear for a short personal interview with the core team.",
   },
   {
     question: "Is there an induction fee?",
