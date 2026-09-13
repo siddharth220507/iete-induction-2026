@@ -10,7 +10,7 @@ interface LogoProps {
 export default function Logo({ size = 26, className = "" }: LogoProps) {
   return (
     <img
-      src="/logo.svg"
+      src="/logo.png"
       alt="IETE Students' Forum logo"
       width={size}
       height={size}

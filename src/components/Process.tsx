@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { STEPS } from "../lib/data";
-import { fadeUp, staggerParent, inViewProps, hairline } from "../lib/motion";
+import { fadeUp, staggerParent, inViewProps } from "../lib/motion";
 
 export default function Process() {
   return (
-    <section id="process" className="border-y border-zinc-200 bg-zinc-50/60 py-24 md:py-28">
+    <section
+      id="process"
+      className="border-y border-zinc-200 bg-zinc-50/60 py-24 md:py-28"
+    >
       <div className="mx-auto max-w-6xl px-6 md:px-8">
         <motion.div {...inViewProps} variants={staggerParent}>
           <motion.p
@@ -13,6 +16,7 @@ export default function Process() {
           >
             Induction Process
           </motion.p>
+
           <motion.h2
             variants={fadeUp}
             className="mb-14 font-serif-display text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl"
@@ -28,20 +32,25 @@ export default function Process() {
         >
           {STEPS.map((step, i) => (
             <motion.li key={step.no} variants={fadeUp} className="relative">
-              {i > 0 && (
-                <motion.span
-                  aria-hidden="true"
-                  variants={hairline}
-                  className="absolute top-1 right-1/2 left-0 hidden h-px origin-left bg-zinc-300 md:block"
-                />
-              )}
               <div className="flex flex-col gap-2">
-                <span className="text-[13px] font-medium text-zinc-400 tabular-nums">{step.no}.</span>
-                <h3 className="text-lg font-medium tracking-tight text-zinc-900">{step.title}</h3>
-                <p className="max-w-sm text-[15px] leading-relaxed text-zinc-500">{step.description}</p>
+                <span className="text-[13px] font-medium text-zinc-400 tabular-nums">
+                  {step.no}.
+                </span>
+
+                <h3 className="text-lg font-medium tracking-tight text-zinc-900">
+                  {step.title}
+                </h3>
+
+                <p className="max-w-sm text-[15px] leading-relaxed text-zinc-500">
+                  {step.description}
+                </p>
               </div>
+
               {i < STEPS.length - 1 && (
-                <span aria-hidden="true" className="mt-4 block h-px w-8 bg-zinc-300 md:hidden" />
+                <span
+                  aria-hidden="true"
+                  className="mt-4 block h-px w-8 bg-zinc-300 md:hidden"
+                />
               )}
             </motion.li>
           ))}
