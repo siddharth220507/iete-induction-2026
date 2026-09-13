@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { supabase } from '../lib/supabase';
 import { BRANCHES, DOMAINS, WHATSAPP_GROUP_URL } from "../lib/data";
 import { fadeUp, inViewProps, staggerParent } from "../lib/motion";
+import emailjs from '@emailjs/browser';
 
 interface InductionFormProps {
   selectedDomain: string | null;
@@ -133,6 +134,26 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
       console.error("Supabase Error:", error.message);
       alert("Submission error: " + error.message);
       return;
+    }
+    // Send confirmation email from ietebits@gmail.com
+    // Send confirmation email from ietebits@gmail.com
+    // Send confirmation email from ietebits@gmail.com
+    try {
+      await emailjs.send(
+        "service_h8hn22p",
+        "template_u8nigj9",
+        {
+          to_email: values.email,
+          full_name: values.fullName,
+          branch: values.branch,
+          roll_no: values.cmlrank,
+          domain: values.domain,
+          whatsapp_link: WHATSAPP_GROUP_URL,
+        },
+        "Ns5WZZEdHQ4giy6O1"
+      );
+    } catch (err) {
+      console.error("EmailJS Error:", err);
     }
 
     // Trigger completion screen
