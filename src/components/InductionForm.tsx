@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { supabase } from '../lib/supabase';
 import { CLUB_NAME, BRANCHES, DOMAINS, WHATSAPP_GROUP_URL } from "../lib/data";
 import { fadeUp, inViewProps, staggerParent } from "../lib/motion";
 
