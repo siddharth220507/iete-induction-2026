@@ -10,39 +10,55 @@ interface InductionFormProps {
 
 interface FormValues {
   fullName: string;
-  rollNo: string;
   branch: string;
+  percentage12: string;
+  cmlrank: string;
   whatsapp: string;
   email: string;
   domain: string;
-  interest: string;
-  whyIete: string;
+  hobbies:string;
+  strength:string;
+  aim:string;
+  achievements: string;
+
 }
 
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
 const initialValues: FormValues = {
   fullName: "",
-  rollNo: "",
   branch: "",
+  percentage12: "",
+  cmlrank: "",
   whatsapp: "",
   email: "",
   domain: "",
-  interest: "",
-  whyIete: "",
+  hobbies: "",
+  strength: "",
+  aim: "",
+  achievements: "",
+  
 };
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {};
   if (!values.fullName.trim()) errors.fullName = "Required.";
-  if (!values.rollNo.trim()) errors.rollNo = "Required.";
   if (!values.branch) errors.branch = "Select your branch.";
-  if (!/^\d{10}$/.test(values.whatsapp.replace(/\s+/g, "")))
-    errors.whatsapp = "Enter a 10-digit number.";
+  const percentage = Number(values.percentage12);
+  if(!values.percentage12.trim()) errors.percentage12 = "Required.";
+  else if (Number.isNaN(percentage) || percentage <0 || percentage > 100)
+    errors.percentage12 = "Enter a percentage between 0 and 100.";
+  const cmlrank = Number(values.cmlrank);
+  if(!values.cmlrank.trim()) errors.cmlrank ="Required.";
+  else if (!Number.isInteger(cmlrank)|| cmlrank <= 0) errors.cmlrank = "Enter a valid CML rank.";
+  const whatsapp = values.whatsapp.replace(/\s+/g, " ");
+  if (!/^\d{10}$/.test(whatsapp))  errors.whatsapp = "Enter a 10-digit number.";
   if (!/^\S+@\S+\.\S+$/.test(values.email.trim())) errors.email = "Enter a valid email.";
   if (!values.domain) errors.domain = "Select a domain.";
-  if (!values.interest.trim()) errors.interest = "A line or two is enough.";
-  if (!values.whyIete.trim()) errors.whyIete = "A line or two is enough.";
+  if (!values.hobbies.trim()) errors.hobbies = "Required";
+  if (!values.strength.trim()) errors.strength = "Required.";
+  if (!values.aim.trim()) errors.aim = "Required.";
+  if (!values.achievements.trim()) errors.achievements = "Required.";
   return errors;
 }
 
@@ -125,12 +141,7 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
                 {errors.fullName && <p className={errorClass}>{errors.fullName}</p>}
               </div>
 
-              <div>
-                <label htmlFor="rollNo" className={labelClass}>Roll No</label>
-                <input id="rollNo" type="text" placeholder="e.g. 22BEC1234"
-                  value={values.rollNo} onChange={set("rollNo")} className="w-full" />
-                {errors.rollNo && <p className={errorClass}>{errors.rollNo}</p>}
-              </div>
+          
 
               <div>
                 <label htmlFor="branch" className={labelClass}>Branch</label>
@@ -139,6 +150,20 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
                   {BRANCHES.map((b) => <option key={b} value={b}>{b}</option>)}
                 </select>
                 {errors.branch && <p className={errorClass}>{errors.branch}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="percentage12" className={labelClass}>Class 12th Percentage</label>
+                <input id="percentage12" type="number" min="0" max="100" step="0.01" placeholder = "e.g.87.5" 
+                value={values.percentage12} onChange ={ set("percentage12")} className = "w-full"/> 
+                {errors.percentage12 && (<p className="(errorClass}">{errors.percentage12}</p>)}
+              </div>
+
+              <div>
+                <label htmlFor="cmlrank" className={labelClass}> CML Rank</label>
+                <input id="cmlrank" type="number" min="1"  step="1" placeholder = "Enter your CML rank" 
+                value={values.cmlrank} onChange ={ set("cmlrank")} className = "w-full"/> 
+                {errors.cmlrank && (<p className="(errorClass}">{errors.cmlrank}</p>)}
               </div>
 
               <div>
@@ -164,21 +189,35 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
                 {errors.domain && <p className={errorClass}>{errors.domain}</p>}
               </div>
 
-              <div className="md:col-span-2">
-                <label htmlFor="interest" className={labelClass}>
-                  Briefly describe your interest or prior work
-                </label>
-                <textarea id="interest" rows={4} placeholder="Projects, clubs, courses, self-taught experiments — anything counts."
-                  value={values.interest} onChange={set("interest")} className="w-full resize-y" />
-                {errors.interest && <p className={errorClass}>{errors.interest}</p>}
+              <div>
+                <label htmlFor="hobbies" className={labelClass}>Hobbies</label>
+                <input id="hobbies" type="text" placeholder="e.g. Music,Cricket,Reading"
+                  value={values.hobbies} onChange={set("hobbies")} className="w-full " />
+                {errors.hobbies && <p className={errorClass}>{errors.hobbies}</p>}
               </div>
 
-              <div className="md:col-span-2">
-                <label htmlFor="whyIete" className={labelClass}>Why IETE?</label>
-                <textarea id="whyIete" rows={4} placeholder="What do you want out of this chapter?"
-                  value={values.whyIete} onChange={set("whyIete")} className="w-full resize-y" />
-                {errors.whyIete && <p className={errorClass}>{errors.whyIete}</p>}
+              <div>
+                <label htmlFor="strength" className={labelClass}>Strength</label>
+                <input id="strength" type="text" placeholder="e.g. Teamwork,Leadership"
+                  value={values.strength} onChange={set("strength")} className="w-full " />
+                {errors.strength && <p className={errorClass}>{errors.strength}</p>}
               </div>
+
+              <div>
+                <label htmlFor="aim" className={labelClass}>Aim</label>
+                <input id="aim" type="text" placeholder="What is your career aim?"
+                  value={values.aim} onChange={set("aim")} className="w-full " />
+                {errors.aim && <p className={errorClass}>{errors.aim}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="achievements" className={labelClass}>Achievements</label>
+                <textarea id="achievemets" rows={5}  placeholder="Mention your academic and extracurricular achievements such as academic awards , scholarships , competitions,sports,cultural activities, etc"
+                  value={values.achievements} onChange={set("achievements")} className="w-full " />
+                {errors.achievements && <p className={errorClass}>{errors.achievements}</p>}
+              </div>
+
+              
 
               <div className="md:col-span-2">
                 <motion.button
