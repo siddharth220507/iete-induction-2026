@@ -1,0 +1,87 @@
+
+> iete-induction-portal@1.0.0 dev
+> vite --port 5174 --strictPort
+
+
+  [32m[1mVITE[22m v6.4.3[39m  [2mready in [0m[1m484[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5174[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m11:24:36 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Hero.tsx, /src/index.css, /src/components/Nav.tsx, /src/components/Process.tsx, /src/components/Domains.tsx, /src/components/Footer.tsx, /src/components/InductionForm.tsx[22m
+[2m11:33:26 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Hero.tsx, /src/index.css, /src/components/Nav.tsx, /src/components/Process.tsx, /src/components/Domains.tsx, /src/components/Footer.tsx, /src/components/InductionForm.tsx[22m
+[2m11:34:06 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Nav.tsx, /src/index.css[22m
+[2m11:34:06 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Hero.tsx, /src/index.css[22m
+[2m11:34:20 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Domains.tsx, /src/index.css[22m
+[2m11:34:20 am[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\src\components\Domains.tsx: Expected corresponding JSX closing tag for <motion.p>. (36:10)
+
+[0m [90m 34 |[31m             [33mEvery[31m domain maps to real work — events you will run[33m,[31m projects you will ship[33m,[31m
+ [90m 35 |[31m             and a tag shows how you will spend your time[33m.[31m [33mSelect[31m one to start your application[33m.[31m
+[31m[1m>[22m[31m[90m 36 |[31m           [33m<[31m[33m/[31m[33mmotion[31m[33m.[31minteractive[33m>[31m
+ [90m    |[31m           [31m[1m^[22m[31m
+ [90m 37 |[31m           [33m<[31m[33m/[31m[33mmotion[31m[33m.[31mp[33m>[31m
+ [90m 38 |[31m         [33m<[31m[33m/[31m[33mmotion[31m[33m.[31mdiv[33m>[31m
+ [90m 39 |[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/Siddharth/OneDrive/Desktop/IETE INDUCTION FORM 2/src/components/Domains.tsx[39m:36:10
+[33m  34 |              Every domain maps to real work — events you will run, projects you will ship,
+  35 |              and a tag shows how you will spend your time. Select one to start your application.
+  36 |            </motion.interactive>
+     |            ^
+  37 |            </motion.p>
+  38 |          </motion.div>[39m
+      at constructor (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:4743:16)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:4714:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:4714:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:4714:32)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10852:21)
+      at C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:9796:18)
+      at C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10805:23)
+      at C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (C:\Users\Siddharth\OneDrive\Desktop\IETE INDUCTION FORM 2\node_modules\@babel\parser\lib\index.js:9193:18)
+[2m11:34:32 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Domains.tsx, /src/index.css[22m
+[2m11:34:58 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
+[2m11:35:07 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/InductionForm.tsx, /src/index.css[22m
+[2m11:35:16 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m11:45:27 am[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+[2m11:45:27 am[22m [36m[1m[vite][22m[39m server restarted.
