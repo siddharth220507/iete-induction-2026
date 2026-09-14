@@ -5,7 +5,12 @@
  * TODO (before going live): replace with the real WhatsApp group invite URL.
  * The success state links here after submission.
  */
-export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/EGACqoqqIWqJUJnmQKc0Yp";
+export const WHATSAPP_GROUPS = [
+  "https://chat.whatsapp.com/JI3vOLZXDdtLNJvSkAj9Rl?s=cl&p=a&mlu=4&ilr=4",
+  "https://chat.whatsapp.com/HRgwzcNYHDIEIFbc44WV9v?s=sw&p=a&mlu=4&ilr=4",
+  "https://chat.whatsapp.com/DKXe3wg0OnzDzgenwH9fZ1?s=sw&p=a&mlu=4&ilr=4",
+  "https://chat.whatsapp.com/CTn2Oqjb0z09ezOx9RQErq?s=cl&p=a&mlu=4&ilr=4",
+] as const;
 
 export const CONTACT_EMAIL = "ietebits@gmail.com";
 

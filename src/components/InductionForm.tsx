@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { supabase } from '../lib/supabase';
-import { BRANCHES, DOMAINS, WHATSAPP_GROUP_URL } from "../lib/data";
+import { BRANCHES, DOMAINS, WHATSAPP_GROUPS } from "../lib/data";
 import { fadeUp, inViewProps, staggerParent } from "../lib/motion";
 import emailjs from '@emailjs/browser';
 
@@ -82,6 +82,7 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submittedName, setSubmittedName] = useState<string | null>(null);
+  const [assignedGroup, setAssignedGroup] = useState({ link: "", name: "" });
 
   // When a domain row is clicked above, preselect it here once.
   useEffect(() => {
@@ -106,6 +107,10 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
       setErrors(nextErrors);
       return;
     }
+    // Distribute evenly across all 4 screening groups
+    const groupIndex = Math.floor(Math.random() * 4);
+    const selectedGroupLink = WHATSAPP_GROUPS[groupIndex];
+    const selectedGroupName = `Screening Group ${groupIndex + 1}`;
 
     // Send the application data to Supabase
     const { error } = await supabase
@@ -148,7 +153,7 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
           branch: values.branch,
           roll_no: values.cmlrank,
           domain: values.domain,
-          whatsapp_link: WHATSAPP_GROUP_URL,
+          whatsapp_link: selectedGroupLink,
         },
         "Ns5WZZEdHQ4giy6O1"
       );
@@ -157,6 +162,7 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
     }
 
     // Trigger completion screen
+    setAssignedGroup({ link: selectedGroupLink, name: selectedGroupName });
     setSubmittedName(values.fullName.trim());
   };
 
@@ -379,16 +385,18 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
                 join the induction group below so you don't miss any updates.
               </p>
               <a
-                href={WHATSAPP_GROUP_URL}
+                href={assignedGroup.link || "https://chat.whatsapp.com/JI3vOLZXDdtLNJvSkAj9Rl?s=cl&p=a&mlu=4&ilr=4"}
                 target="_blank"
                 rel="noreferrer"
-                className="group mt-8 inline-flex items-center gap-2 text-[15px] font-medium transition-colors"
+                className="group mt-8 inline-flex items-center gap-2 text-[15px] font-medium transition-all"
                 style={{ color: "#1E3A8A" }}
               >
                 <span className="border-b pb-0.5" style={{ borderColor: "#1E3A8A" }}>
-                  Join the induction WhatsApp group
+                  Join {assignedGroup.name || "the induction WhatsApp group"}
                 </span>
-                <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
               </a>
               <div className="mt-10 border-t border-zinc-200 pt-6">
                 <button
