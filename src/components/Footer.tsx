@@ -13,7 +13,7 @@ export default function Footer() {
 
         <div className="flex items-centre gap-5">
           <a href="https://www.instagram.com/ietebits?stkn=dng0M3EwZG93MGFl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <img src="/instagram_logo.png.jpeg" alt="Instagram" className="h-6 w-6 transition-transform hover:scale-110"/>
+            <img src="/instagram_logo.jpeg" alt="Instagram" className="h-6 w-6 transition-transform hover:scale-110"/>
           </a>
           <a href="https://x.com/IETE_BITS" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
             <img src="/twitter_logo.jpeg" alt="Twitter" className="h-6 w-6 transition-transform hover:scale-110"/>
