@@ -402,6 +402,47 @@ export default function InductionForm({ selectedDomain, onConsumeSelectedDomain 
             </motion.div>
           )}
         </AnimatePresence>
+        {/* Induction Coordinators / Point of Contact */}
+        <div className="mt-16 pt-12 border-t border-zinc-200">
+          <div className="text-center mb-8">
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Point of Contact
+            </p>
+            <h3 className="text-xl font-bold text-zinc-900 mt-1">
+              Have Queries? Contact Coordinators
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            {/* Coordinator 1: Siddharth Mishra */}
+            <div className="p-4 rounded-xl border border-zinc-200 bg-zinc-50/60 flex items-center justify-between">
+              <div>
+                <h4 className="font-semibold text-sm text-zinc-900">Siddharth Mishra</h4>
+                <p className="text-xs text-zinc-500 mt-0.5">Batch 2k25</p>
+              </div>
+              <a
+                href="tel:+916207527518"
+                className="text-xs font-medium px-3.5 py-2 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 transition-colors shadow-2xs"
+              >
+                +91 62075 27518
+              </a>
+            </div>
+
+            {/* Coordinator 2: Khushi Pandey */}
+            <div className="p-4 rounded-xl border border-zinc-200 bg-zinc-50/60 flex items-center justify-between">
+              <div>
+                <h4 className="font-semibold text-sm text-zinc-900">Khushi Pandey</h4>
+                <p className="text-xs text-zinc-500 mt-0.5">Batch 2k25</p>
+              </div>
+              <a
+                href="tel:+917991186216"
+                className="text-xs font-medium px-3.5 py-2 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 transition-colors shadow-2xs"
+              >
+                +91 79911 86216
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

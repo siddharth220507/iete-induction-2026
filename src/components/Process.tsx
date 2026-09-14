@@ -1,60 +1,31 @@
-import { motion } from "framer-motion";
-import { STEPS } from "../lib/data";
-import { fadeUp, staggerParent, inViewProps } from "../lib/motion";
-
 export default function Process() {
+  const steps = [
+    { no: "01", title: "Fill Application", desc: "Submit your details below" },
+    { no: "02", title: "Screening & Learning", desc: "Assess knowledge and skills through screening tests" },
+    { no: "03", title: "Personal Interview", desc: "Interaction with the core team" },
+  ];
+
   return (
-    <section
-      id="process"
-      className="border-y border-zinc-200 bg-zinc-50/60 py-24 md:py-28"
-    >
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
-        <motion.div {...inViewProps} variants={staggerParent}>
-          <motion.p
-            variants={fadeUp}
-            className="mb-4 text-[13px] font-medium tracking-[0.18em] text-zinc-500 uppercase"
-          >
-            Induction Process
-          </motion.p>
-
-          <motion.h2
-            variants={fadeUp}
-            className="mb-14 font-serif-display text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl"
-          >
-            Three steps. No shortcuts, no gatekeeping.
-          </motion.h2>
-        </motion.div>
-
-        <motion.ol
-          {...inViewProps}
-          variants={staggerParent}
-          className="grid gap-y-10 md:grid-cols-3 md:gap-x-0"
-        >
-          {STEPS.map((step, i) => (
-            <motion.li key={step.no} variants={fadeUp} className="relative">
-              <div className="flex flex-col gap-2">
-                <span className="text-[13px] font-medium text-zinc-400 tabular-nums">
-                  {step.no}.
-                </span>
-
-                <h3 className="text-lg font-medium tracking-tight text-zinc-900">
-                  {step.title}
-                </h3>
-
-                <p className="max-w-sm text-[15px] leading-relaxed text-zinc-500">
-                  {step.description}
-                </p>
+    <section className="border-y border-zinc-200 bg-zinc-50/50 py-10">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-4">
+          {steps.map((step, idx) => (
+            <div key={step.no} className="flex items-center gap-3 w-full sm:w-auto">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-xs font-bold text-white">
+                {step.no}
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-zinc-900">{step.title}</p>
+                <p className="text-xs text-zinc-500">{step.desc}</p>
               </div>
-
-              {i < STEPS.length - 1 && (
-                <span
-                  aria-hidden="true"
-                  className="mt-4 block h-px w-8 bg-zinc-300 md:hidden"
-                />
+              {idx < steps.length - 1 && (
+                <span className="hidden lg:block text-zinc-300 ml-6 text-lg font-light">
+                  →
+                </span>
               )}
-            </motion.li>
+            </div>
           ))}
-        </motion.ol>
+        </div>
       </div>
     </section>
   );

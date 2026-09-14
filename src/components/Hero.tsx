@@ -74,25 +74,22 @@ export default function Hero() {
           {FULL_CLUB_NAME}
         </motion.h1>
         <motion.p variants={fadeUp} className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-500">
-        A Students' Forum for engineers who build. A community of students passionate about electronics, robotics, software, AI, and emerging technology. <br/> Learn by doing, collaborate with fellow builders, take on real challenges, and grow together.
+          A Students' Forum for engineers who build. A community of students passionate about electronics, robotics, software, AI, and emerging technology. <br />
         </motion.p>
-        <motion.a
-          variants={fadeUp}
+        <a
           href="#apply"
-          className="group mt-10 inline-flex items-center gap-2 text-[15px] font-medium text-zinc-900 transition-colors hover:text-navy"
+          className="mt-8 inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-zinc-950 text-white font-medium text-sm shadow-md hover:bg-zinc-800 hover:shadow-lg transition-all duration-200 group"
         >
-          <span className="border-b border-zinc-900 pb-0.5 transition-colors group-hover:border-navy">
-            Start your application
-          </span>
-          <span
-            aria-hidden="true"
-            className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-          >
+          {/* Green dot safely locked inside the button */}
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+
+          <span>Fill Induction Form</span>
+          <span className="text-zinc-400 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white">
             →
           </span>
-        </motion.a>
+        </a>
 
-        
+
       </motion.div>
     </section>
   );
